@@ -20,6 +20,7 @@ class PatientFixtures extends Fixture implements DependentFixtureInterface
         $fichePatient1->setAntecedent('Allergie aux arachides');
         $fichePatient1->setPatient($this->getReference('patient1-user', User::class));
         $manager->persist($fichePatient1);
+        $this->addReference('patient1', $fichePatient1);
 
         $fichePatient2 = new Patient();
         $fichePatient2->setCode('PAT002');
@@ -28,6 +29,7 @@ class PatientFixtures extends Fixture implements DependentFixtureInterface
         $fichePatient2->setAntecedent('Asthme');
         $fichePatient2->setPatient($this->getReference('patient2-user', User::class));
         $manager->persist($fichePatient2);
+        $this->addReference('patient2', $fichePatient2);
 
         $manager->flush();
     }

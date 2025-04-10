@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Login</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+		<!-- Tailwind CSS via CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+
+	<body class="bg-gray-100 h-screen flex justify-center items-center">
+
+		<main class="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+			<form action="{{ path('app_security_login') }}" method="post">
+				{% if error %}
+					<div class="alert alert-dismissible alert-danger mb-4 p-4 bg-red-500 text-white rounded">
+						<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					</div>
+				{% endif %}
+
+				<div class="mb-4">
+					<label for="_username" class="block text-sm font-semibold text-gray-700">Email</label>
+					<input type="email" name="_username" id="_username" value="{{ last_username }}" placeholder="abc@mail.com"
+						class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+				</div>
+
+				<div class="mb-6">
+					<label for="_password" class="block text-sm font-semibold text-gray-700">Password</label>
+					<input type="password" name="_password" id="_password" placeholder="*****"
+						class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+				</div>
+                    <input type="hidden" name="_csrf_token"
+                     value="{{ csrf_token('authenticate') }}">
+
+				<button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition duration-200">
+					Se connecter
+				</button>
+			</form>
+		</main>
+
+		<footer class="text-center p-4 mt-8 text-gray-500">
+			<!-- place footer here -->
+		</footer>
+	</body>
+</html>
