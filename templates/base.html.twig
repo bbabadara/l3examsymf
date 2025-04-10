@@ -26,9 +26,9 @@
                         <div class="ml-4 flex items-center">
                             {% if app.user %}
                                 <span class="text-gray-300 px-3 py-2 text-sm font-medium">Bonjour, {{ app.user.email }}</span>
-                                <a href="{{ path('app_logout') }}" class="text-gray-300 hover:text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">Déconnexion</a>
+                                <a href="{{ path('app_security_logout') }}" class="text-gray-300 hover:text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">Déconnexion</a>
                             {% else %}
-                                <a href="{{ path('app_login') }}" class="text-gray-300 hover:text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">Connexion</a>
+                                <a href="{{ path('app_security_login') }}" class="text-gray-300 hover:text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">Connexion</a>
                             {% endif %}
                         </div>
                     </div>
